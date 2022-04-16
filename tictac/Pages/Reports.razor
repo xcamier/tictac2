@@ -1,0 +1,19 @@
+@page "/reports"
+
+<PageTitle>Reports</PageTitle>
+
+<h1>Reports</h1>
+
+<AuthorizeView>
+    <Authorized>
+        <p>This is the component in which the user will create and view the Reports</p>
+    </Authorized>
+    <NotAuthorized>
+        <p>You are not allowed to display that page</p>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+@code {
+
+}

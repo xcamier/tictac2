@@ -1,12 +1,18 @@
-﻿<AuthorizeView>
+﻿@inject NavigationManager Navig
+
+<AuthorizeView>
     <Authorized>
-        <a href="Identity/Account/Manage">Hello, @context.User.Identity?.Name!</a>
-        <form method="post" action="Identity/Account/LogOut">
-            <button type="submit" class="nav-link btn btn-link">Log out</button>
-        </form>
+        <MudMenu Icon="@Icons.Filled.Person" Color="Color.Secondary" Direction="Direction.Right" OffsetY="true">
+            <MudMenuItem OnClick='() => Navig.NavigateTo("Identity/Account/Manage")'>Hello, @context.User.Identity?.Name!</MudMenuItem>
+            <MudMenuItem>
+                <form method="post" action="Identity/Account/LogOut">
+                    <button type="submit" class="nav-link btn btn-link">Log out</button>
+                </form>
+            </MudMenuItem>
+        </MudMenu>
     </Authorized>
     <NotAuthorized>
-        <a href="Identity/Account/Register">Register</a>
-        <a href="Identity/Account/Login">Log in</a>
+        <MudIconButton Icon="@Icons.Filled.SupervisedUserCircle" Color="Color.Default" OnClick='() => Navig.NavigateTo("Identity/Account/Register", true)' />
+        <MudIconButton Icon="@Icons.Filled.Login" Color="Color.Secondary" OnClick='() => Navig.NavigateTo("Identity/Account/Login", true)' />
     </NotAuthorized>
 </AuthorizeView>

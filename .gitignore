@@ -1,2 +1,4 @@
 bin
 obj
+tictac/app.db
+.DS_Store
